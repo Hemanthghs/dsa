@@ -78,6 +78,8 @@ class Solution
 [https://leetcode.com/problems/missing-number/](https://leetcode.com/problems/missing-number/)
 
 ```java
+
+// T.C: O(n)
 class Solution {
     public int missingNumber(int[] nums) {
         int n = nums.length;
