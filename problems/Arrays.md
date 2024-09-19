@@ -1,4 +1,6 @@
-### Union of Two Sorted Arrays
+ ## Union of Two Sorted Arrays
+
+[https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1](https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1)
 
 ```java
 // Brute force
@@ -70,4 +72,33 @@ class Solution
 }
 
             
+```
+
+## Missing Number - LC - 268
+[https://leetcode.com/problems/missing-number/](https://leetcode.com/problems/missing-number/)
+
+```java
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n = nums.length;
+        int i = 0;
+        while(i<n) {
+            int correctIndex = nums[i];
+            if(nums[i] < n && nums[i] != nums[correctIndex]) {
+                int temp = nums[i];
+                nums[i] = nums[correctIndex];
+                nums[correctIndex] = temp;
+            } else { 
+                i++;
+            }
+        }
+
+        for(int j = 0; j < n; j++) {
+            if(nums[j] != j) {
+                return j;
+            }
+        }
+        return n;
+    }
+}
 ```
