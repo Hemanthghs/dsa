@@ -1,4 +1,8 @@
- ## Union of Two Sorted Arrays
+# Arrays
+
+# Sep 19, 2024
+
+## Union of Two Sorted Arrays
 
 [https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1](https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1)
 
@@ -103,4 +107,58 @@ class Solution {
         return n;
     }
 }
+```
+
+# Sep 21, 2024
+
+## Maximum consecutive ones
+[https://leetcode.com/submissions/detail/1397704535/](https://leetcode.com/submissions/detail/1397704535/)
+
+```java
+// T.C: O(N)
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int maxCount = 0;
+        int count = 0;
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] == 1) {
+                count++;
+            } else {
+                count = 0;
+            }
+            maxCount = Math.max(count, maxCount);
+        }
+        return maxCount;
+    }
+}
+```
+
+```
+class Solution {
+    // Function for finding maximum and value pair
+    public static int lenOfLongSubarr(int A[], int N, int K) {
+        int maxLen = 0;
+        int sum = 0;
+        Map<Integer, Integer> sumMap = new HashMap<>();
+        int last = 0;
+        for(int i = 0; i < N; i++) {
+            sum += A[i];
+            if(sum == K) {
+                maxLen = Math.max(maxLen, i + 1);
+            }
+            int rem = sum - K;
+            if(sumMap.containsKey(rem)) {
+                int len = i - sumMap.get(rem);
+                maxLen = Math.max(maxLen, len);
+            } 
+            if(!sumMap.containsKey(sum)){
+                sumMap.put(sum, i);
+            }
+            
+        }
+        return maxLen;
+    }
+}
+
+
 ```
